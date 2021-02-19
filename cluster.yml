@@ -1,0 +1,20 @@
+cluster_name: rancherito
+ssh_key_path: ~/.ssh/keys/linode/rancherito
+
+nodes:
+  - address: 
+    internal_address: 
+    user: rke
+    role: [controlplane,worker,etcd]
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+network:
+  plugin: weave
+
+ingress:
+  provider: nginx
